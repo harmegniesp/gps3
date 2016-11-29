@@ -1,0 +1,78 @@
+{%  extends "layout.twig" %}
+
+{%  block content %}
+
+<h1>Formulaire de Contact</h1>
+
+
+    <!-- affichage d'un message flash -->
+    <!-- message à supprimer en rappelant la page -->
+    <!-- cf Middleware slim -->
+    <!-- 2 possibilités: envoyer ok et erreur  si validation incorrecte  ... -->
+
+    {% if flash.success %}
+        <div class = "alert alert-success">
+            {{  flash.success  }}
+        </div>
+    {% endif %}
+    {% if flash.error %}
+        <div class = "alert alert-danger">
+            {{  flash.error  }}
+        </div>
+    {% endif %}
+    {%  if flash.errors.envoiMail %}
+        <div class = "alert alert-danger">
+            {{  flash.errors.envoiMail  }}
+        </div>
+    {% endif %}
+
+    <!--  dump(flash.errors) pour afficher les erreurs développement  -->
+
+    <form action="{{ path_for('contact') }}" method="post">
+        <div class="form-group{% if flash.errors.nom %} has-error{% endif %}" style="width:300px">
+            <label for="nom">Votre nom: </label>
+            <input type="text" name="nom" id="nom" class="form-control">
+            {%  if flash.errors.nom  %}
+                <span class="help-block">
+                    {{ flash.errors.nom }}
+                </span>
+            {% endif %}
+        </div>
+        <div class="form-group{% if flash.errors.prenom %} has-error{% endif %}" style="width:300px">
+            <label for="prenom">Votre prénom: </label>
+            <input type="text" name="prenom" id="prenom" class="form-control">
+            {%  if flash.errors.prenom  %}
+                <span class="help-block">
+                    {{ flash.errors.prenom }}
+                </span>
+            {% endif %}
+        </div>
+        <div class="form-group{% if flash.errors.email %} has-error{% endif %}" style="width:300px">
+            <label for="email">Votre email: </label>
+            <input type="email" name="email" id="email" class="form-control">
+            {%  if flash.errors.email  %}
+                <span class="help-block">
+                    {{ flash.errors.email }}
+                </span>
+            {% endif %}
+        </div>
+        <div class="form-group{% if flash.errors.contenu %} has-error{% endif %}" style="width:400px;height:100px;resize:none">
+            <label for="contenu">Votre message: </label>
+            <textarea name="contenu" id="contenu" class="form-control">
+                </textarea>
+            {%  if flash.errors.contenu  %}
+                <span class="help-block">
+                    {{ flash.errors.contenu }}
+                </span>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            <input type="submit" name="submit" id="submit" class="btn btn-primary" value="envoyer">
+            <input type="reset" name="reset" id="reset" class="btn btn-primary" value="annuler">
+        </div>
+
+
+    </form>
+
+
+{%  endblock %}

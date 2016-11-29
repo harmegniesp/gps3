@@ -1,0 +1,18 @@
+{%  extends "layout.twig" %}
+
+{%  block content %}
+
+    <h1>Partie Gestion Ecole</h1>
+    <aside style="float:left;width:100px">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="{{ path_for('school_insert') }}">Encoder une école</a></li>
+            <li><a href="{{ path_for('school_update') }}">Modifier une école</a></li>
+            <li><a href="{{ path_for('school_delete') }}">Supprimer une école</a></li>
+            <li><a href="{{ path_for('school_list') }}">Afficher les écoles</a></li>
+            <li><a href="{{ path_for('school_listcourses') }}">Afficher les formations d'une école</a></li>
+        </ul>
+    </aside>
+    <article style="padding-left:110px">
+        <h2>Encoder une Ecole</h2>
+    </article>
+{%  endblock %}

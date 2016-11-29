@@ -1,0 +1,23 @@
+{
+    "name": "hpph/gestion-de-presence-slim3",
+    "description": "projet gestion des présences en utilisant slim3",
+    "authors": [
+        {
+            "name":"patrice Harmegnies",
+            "email":"httpdev@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "app\\":"app/",
+            "phpmailer\\":"phpmailer/"
+        }
+    },
+
+    "require": {
+        "slim/slim": "^3.6",
+        "slim/twig-view": "^2.1",
+        "swiftmailer/swiftmailer": "^5.4",
+        "respect/validation": "^1.1"
+    }
+}
