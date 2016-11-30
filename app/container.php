@@ -97,8 +97,8 @@ $container['mailergmail'] = function($container) {
         ->setHost('smtp.gmail.com')
         ->setPort(465)
         ->setEncryption('ssl')
-        ->setUsername('httpdev@gmail.com')
-        ->setPassword('httpdev5233')
+        ->setUsername('**********')
+        ->setPassword('********')
     ;
     // si spécifier le serveur smtp
     //$transport = Swift_MailTransport::newInstance();
